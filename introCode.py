@@ -14,6 +14,24 @@ def add(A,B):
 def sub(A,B):
     n = len(A)
     return [[A[i][j]-B[i][j] for j in range(n)] for i in range(n)]
+def addOne(A,B):
+    p = len(A)
+    q = len(B)
+    if p < q:
+        while len(A) < q: A.append(0)
+    else:
+        while len(B) < p: B.append(0)
+    C = [A[i]+B[i] for i in range(len(A))]
+    return C
+def subOne(A,B):
+    p = len(A)
+    q = len(B)
+    if p < q:
+        while len(A) < q: A.append(0)
+    else:
+        while len(B) < p: B.append(0)
+    C = [A[i]-B[i] for i in range(len(A))]
+    return C
 def strassenAlgo(C,A,B):
     n = len(A)
     if n == 1:
@@ -65,6 +83,34 @@ def strassenAlgo(C,A,B):
     for i in range(n):
         for j in range(n): C[i][j] = C1[i][j]
     return
+def karatsubaAlgo(A,B):
+    if len(A) == len(B) and len(A) == 1:
+        return [A[0]*B[0]]
+    p = len(A)
+    q = len(B)
+    if p < q:
+        while len(A) < q: A.append(0)
+    else:
+        while len(B) < p: B.append(0)
+    n = len(B)
+    if n%2 == 1:
+        A.append(0)
+        B.append(0)
+        n = n + 1
+    h = int(n/2)
+    x0 = [A[i] for i in range(h)]
+    x1 = [A[i] for i in range(h,n)]
+    y0 = [B[i] for i in range(h)]
+    y1 = [B[i] for i in range(h,n)]
+    z0 = karatsubaAlgo(x0,y0)
+    z2 = karatsubaAlgo(x1,y1)
+    z1 = karatsubaAlgo(addOne(x0,x1),addOne(y0,y1))
+    z3 = subOne(subOne(z1,z2),z0)
+    C  = []
+    for i in range(len(z0)): C.append(z0[i])
+    for i in range(len(z3)): C.append(z3[i])
+    for i in range(len(z2)): C.append(z2[i])
+    return C
 class testFrameWork(TestCase):
     def test1(self):
         trueSigW = True
@@ -95,11 +141,12 @@ class testFrameWork(TestCase):
         self.assertTrue(trueSig)
     def test3(self):
         trueSigW = True
-        for k in range(25):
-            n = randint(3,15)
-            A = [[1 for j in range(n)] for j in range(n)]
-            B = [[1 for j in range(n)] for j in range(n)]
-            C1 = [[0 for j in range(n)] for j in range(n)]
+        for k in range(5):
+            m = randint(1,5)
+            n = 2**m
+            A = [[1 for j in range(n)] for i in range(n)]
+            B = [[1 for j in range(n)] for i in range(n)]
+            C1 = [[0 for j in range(n)] for i in range(n)]
             strassenAlgo(C1,A,B)
             trueSig = True
             for i in range(n):
@@ -107,5 +154,14 @@ class testFrameWork(TestCase):
                     trueSig = trueSig and C1[i][j] == n
             trueSigW = trueSigW and trueSig
         self.assertTrue(trueSigW)
+    def test4(self):
+        A = [1,1]
+        B = [1,1]
+        C = [1,2,1]
+        C1 = karatsubaAlgo(A,B)
+        trueSig = True
+        for i in range(len(C1)):
+            trueSig = trueSig and C[i]==C1[i]
+        self.assertTrue(trueSig)
 if __name__ == '__main__':
     main()
