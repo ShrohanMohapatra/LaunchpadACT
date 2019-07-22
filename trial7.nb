@@ -1,0 +1,3062 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    112241,       3054]
+NotebookOptionsPosition[    108267,       2990]
+NotebookOutlinePosition[    108629,       3006]
+CellTagsIndexPosition[    108586,       3003]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"trueCheck", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"schoolbook", "[", 
+    RowBox[{"A_", ",", "B_"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Block", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"C", ",", "i", ",", "j", ",", "k", ",", "n"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"n", "=", 
+       RowBox[{"Length", "[", "A", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"C", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{"0", ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", "1", ",", "n"}], "}"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"For", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"i", "=", "1"}], ",", 
+        RowBox[{"i", "\[LessEqual]", "n"}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"For", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"j", "=", "1"}], ",", 
+          RowBox[{"j", "\[LessEqual]", "n"}], ",", 
+          RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"For", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"k", "=", "1"}], ",", 
+            RowBox[{"k", "\[LessEqual]", "n"}], ",", 
+            RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"C", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "=", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"C", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], "+", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"A", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "[", 
+                RowBox[{"[", "k", "]"}], "]"}], "*", 
+               RowBox[{
+                RowBox[{"B", "[", 
+                 RowBox[{"[", "k", "]"}], "]"}], "[", 
+                RowBox[{"[", "j", "]"}], "]"}]}]}]}]}], "\[IndentingNewLine]",
+            "]"}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "C", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"newAlgoV1", "[", 
+    RowBox[{"A_", ",", "B_"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Block", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "Cr", ",", "n", ",", "a", ",", "b", ",", "c", ",", "d", ",", "e", ",", 
+       "f", ",", "g", ",", "h", ",", "\[Lambda]", ",", "k1", ",", "k2", ",", 
+       "k3", ",", "k4", ",", "Ap", ",", "Bp", ",", "i", ",", "j", ",", "C1", 
+       ",", "C2", ",", "C3", ",", "C4"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"n", "=", 
+       RowBox[{"Length", "[", "A", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"n", "\[Equal]", "1"}], ",", " ", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"\[Lambda]", "=", 
+          RowBox[{"ToExpression", "[", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"\"\<x\>\"", ",", 
+             RowBox[{"ToString", "[", "trueCheck", "]"}]}], "]"}], "]"}]}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", 
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{"Collect", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"A", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "*", 
+               RowBox[{
+                RowBox[{"B", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], ",", "\[Lambda]"}], "]"}], 
+            "}"}], "}"}], "]"}]}], "\[IndentingNewLine]", ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Cr", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{"0", ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"j", ",", "1", ",", "n"}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"a", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"A", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"b", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"A", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", 
+                RowBox[{
+                 RowBox[{"n", "/", "2"}], "+", "1"}], ",", "n"}], "}"}]}], 
+             "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"c", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"A", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", 
+              RowBox[{
+               RowBox[{"n", "/", "2"}], "+", "1"}], ",", "n"}], "}"}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"d", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"A", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", 
+                RowBox[{
+                 RowBox[{"n", "/", "2"}], "+", "1"}], ",", "n"}], "}"}]}], 
+             "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", 
+              RowBox[{
+               RowBox[{"n", "/", "2"}], "+", "1"}], ",", "n"}], "}"}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"e", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"B", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"f", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"B", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", 
+                RowBox[{
+                 RowBox[{"n", "/", "2"}], "+", "1"}], ",", "n"}], "}"}]}], 
+             "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"g", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"B", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", 
+              RowBox[{
+               RowBox[{"n", "/", "2"}], "+", "1"}], ",", "n"}], "}"}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"h", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"B", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", 
+                RowBox[{
+                 RowBox[{"n", "/", "2"}], "+", "1"}], ",", "n"}], "}"}]}], 
+             "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", 
+              RowBox[{
+               RowBox[{"n", "/", "2"}], "+", "1"}], ",", "n"}], "}"}]}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"trueCheck", "=", 
+          RowBox[{"trueCheck", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"\[Lambda]", "=", 
+          RowBox[{"ToExpression", "[", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"\"\<x\>\"", ",", 
+             RowBox[{"ToString", "[", "trueCheck", "]"}]}], "]"}], "]"}]}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"k1", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"a", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "[", 
+                RowBox[{"[", "j", "]"}], "]"}], "+", 
+               RowBox[{
+                RowBox[{"\[Lambda]", "^", "2"}], 
+                RowBox[{
+                 RowBox[{"c", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "[", 
+                 RowBox[{"[", "j", "]"}], "]"}]}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"k2", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"e", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "[", 
+                RowBox[{"[", "j", "]"}], "]"}], "+", 
+               RowBox[{"\[Lambda]", " ", 
+                RowBox[{
+                 RowBox[{"f", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "[", 
+                 RowBox[{"[", "j", "]"}], "]"}]}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"k3", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"b", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "[", 
+                RowBox[{"[", "j", "]"}], "]"}], "+", 
+               RowBox[{
+                RowBox[{"\[Lambda]", "^", "2"}], 
+                RowBox[{
+                 RowBox[{"d", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "[", 
+                 RowBox[{"[", "j", "]"}], "]"}]}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"k4", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"g", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "[", 
+                RowBox[{"[", "j", "]"}], "]"}], "+", 
+               RowBox[{"\[Lambda]", " ", 
+                RowBox[{
+                 RowBox[{"h", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "[", 
+                 RowBox[{"[", "j", "]"}], "]"}]}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Ap", "=", 
+          RowBox[{"newAlgoV1", "[", 
+           RowBox[{"k1", ",", "k2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Bp", "=", 
+          RowBox[{"newAlgoV1", "[", 
+           RowBox[{"k3", ",", "k4"}], "]"}]}], ";", 
+         RowBox[{"C1", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Coefficient", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Ap", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], ",", "\[Lambda]", ",", 
+                 "0"}], "]"}], "+", 
+               RowBox[{"Coefficient", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Bp", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], ",", "\[Lambda]", ",", 
+                 "0"}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"C2", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Coefficient", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Ap", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], ",", "\[Lambda]", ",", 
+                 "1"}], "]"}], "+", 
+               RowBox[{"Coefficient", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Bp", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], ",", "\[Lambda]", ",", 
+                 "1"}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"C3", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Coefficient", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Ap", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], ",", "\[Lambda]", ",", 
+                 "2"}], "]"}], "+", 
+               RowBox[{"Coefficient", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Bp", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], ",", "\[Lambda]", ",", 
+                 "2"}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"C4", "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Coefficient", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Ap", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], ",", "\[Lambda]", ",", 
+                 "3"}], "]"}], "+", 
+               RowBox[{"Coefficient", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Bp", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], ",", "\[Lambda]", ",", 
+                 "3"}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", 
+                RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"n", "/", "2"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"For", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"i", "=", "1"}], ",", 
+           RowBox[{"i", "\[LessEqual]", "n"}], ",", 
+           RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"For", "[", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"j", "=", "1"}], ",", 
+             RowBox[{"j", "\[LessEqual]", "n"}], ",", 
+             RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"i", "\[LessEqual]", 
+                  RowBox[{"n", "/", "2"}]}], "&&", 
+                 RowBox[{"j", "\[LessEqual]", 
+                  RowBox[{"n", "/", "2"}]}]}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Cr", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], "=", 
+                 RowBox[{
+                  RowBox[{"C1", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}]}]}], "]"}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"i", "\[LessEqual]", 
+                  RowBox[{"n", "/", "2"}]}], "&&", 
+                 RowBox[{"j", ">", 
+                  RowBox[{"n", "/", "2"}]}]}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Cr", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], "=", 
+                 RowBox[{
+                  RowBox[{"C2", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", 
+                   RowBox[{"j", "-", 
+                    RowBox[{"n", "/", "2"}]}], "]"}], "]"}]}]}], "]"}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"i", ">", 
+                  RowBox[{"n", "/", "2"}]}], "&&", 
+                 RowBox[{"j", "\[LessEqual]", 
+                  RowBox[{"n", "/", "2"}]}]}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Cr", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], "=", 
+                 RowBox[{
+                  RowBox[{"C3", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"i", "-", 
+                    RowBox[{"n", "/", "2"}]}], "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}]}]}], "]"}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"i", ">", 
+                  RowBox[{"n", "/", "2"}]}], "&&", 
+                 RowBox[{"j", ">", 
+                  RowBox[{"n", "/", "2"}]}]}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Cr", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], "=", 
+                 RowBox[{
+                  RowBox[{"C4", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"i", "-", 
+                    RowBox[{"n", "/", "2"}]}], "]"}], "]"}], "[", 
+                  RowBox[{"[", 
+                   RowBox[{"j", "-", 
+                    RowBox[{"n", "/", "2"}]}], "]"}], "]"}]}]}], "]"}], 
+              ";"}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+          "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", "Cr", "]"}]}]}], "\[IndentingNewLine]", 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"newAlgo", "[", 
+    RowBox[{"A_", ",", "B_"}], "]"}], ":=", 
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{
+      RowBox[{"trueCheck", "=", "0"}], ";", " ", 
+      RowBox[{"Return", "[", 
+       RowBox[{"newAlgoV1", "[", 
+        RowBox[{"A", ",", "B"}], "]"}], "]"}]}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.76697474966635*^9, 3.766974903264928*^9}, {
+  3.766974936619856*^9, 3.766975016843837*^9}, {3.766975238503438*^9, 
+  3.766975273981381*^9}, {3.766975308879592*^9, 3.76697544273528*^9}, {
+  3.76697553818978*^9, 3.766975746724783*^9}, {3.7669762184303207`*^9, 
+  3.766976220366673*^9}, {3.766976394996958*^9, 3.766976397608601*^9}, {
+  3.766976432059416*^9, 3.7669764439035378`*^9}, {3.7669767018042603`*^9, 
+  3.766976702969144*^9}, {3.766976757619911*^9, 3.766976759107201*^9}, {
+  3.7669786788128157`*^9, 
+  3.76697867965233*^9}},ExpressionUUID->"cb1f85cd-3707-4393-a163-\
+c4187a2114e3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Block", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"A", ",", "B", ",", "start", ",", "end", ",", "n"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"For", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"n", "=", "1"}], ",", 
+     RowBox[{"n", "\[LessEqual]", "128"}], ",", 
+     RowBox[{"n", "=", 
+      RowBox[{"n", "*", "2"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Size = \>\"", ",", "n"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"A", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"RandomInteger", "[", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", "1", ",", "n"}], "}"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"B", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"RandomInteger", "[", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", "1", ",", "n"}], "}"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"start", "=", 
+       RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"schoolbook", "[", 
+       RowBox[{"A", ",", "B"}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"end", "=", 
+       RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Schoolbook algorithm time = \>\"", ",", 
+        RowBox[{"end", "-", "start"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"start", "=", 
+       RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"newAlgo", "[", 
+       RowBox[{"A", ",", "B"}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"end", "=", 
+       RowBox[{"AbsoluteTime", "[", "]"}]}], ";", " ", "\[IndentingNewLine]", 
+      
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<My algorithm time = \>\"", ",", 
+        RowBox[{"end", "-", "start"}]}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.766976131107606*^9, 3.766976162628028*^9}, {
+  3.76697645741679*^9, 3.766976458494173*^9}, {3.766976490952723*^9, 
+  3.766976492273918*^9}, {3.766976767485588*^9, 
+  3.7669767677407703`*^9}},ExpressionUUID->"2b62dc70-78d8-4ed4-a8f4-\
+d892d366a245"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Size = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["Size = ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976768768147*^9},ExpressionUUID->"8d0365a8-cd5f-4374-95c6-\
+26d303ccd07d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Schoolbook algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.000058`2.2149729870589105"}],
+  SequenceForm["Schoolbook algorithm time = ", 0.000058`2.2149729870589105],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.76697676877561*^9},ExpressionUUID->"ac255900-b0e5-4ddd-9c73-\
+d2c8f8aa3644"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"My algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.000079`2.349172084786412"}],
+  SequenceForm["My algorithm time = ", 0.000079`2.349172084786412],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976768785818*^9},ExpressionUUID->"34c2761f-c342-4fe3-a407-\
+d99d381ebef4"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Size = \"\>", "\[InvisibleSpace]", "2"}],
+  SequenceForm["Size = ", 2],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.7669767687905083`*^9},ExpressionUUID->"4efb50e3-06c1-4719-ba16-\
+2b4daec0b847"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Schoolbook algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.00007`2.2966430335102315"}],
+  SequenceForm["Schoolbook algorithm time = ", 0.00007`2.2966430335102315],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.7669767687951517`*^9},ExpressionUUID->"40757ae4-54e3-486b-b181-\
+65e8de3df34b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"My algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.000303`2.9329876219982753"}],
+  SequenceForm["My algorithm time = ", 0.000303`2.9329876219982753],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976768799715*^9},ExpressionUUID->"40373cb1-d271-4291-a30b-\
+2d28d473a7f7"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Size = \"\>", "\[InvisibleSpace]", "4"}],
+  SequenceForm["Size = ", 4],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976768804514*^9},ExpressionUUID->"8d5b2745-f088-4e0a-875b-\
+f992191ba661"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Schoolbook algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.000483`3.1354921242474876"}],
+  SequenceForm["Schoolbook algorithm time = ", 0.000483`3.1354921242474876],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976768809268*^9},ExpressionUUID->"deb01060-5c4b-4e45-aa0b-\
+ab6f0e67ba47"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"My algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.001628`3.6631993940491534"}],
+  SequenceForm["My algorithm time = ", 0.001628`3.6631993940491534],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.7669767688140717`*^9},ExpressionUUID->"51fffedb-c1ac-4e8c-a1fb-\
+644a687d9bea"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Size = \"\>", "\[InvisibleSpace]", "8"}],
+  SequenceForm["Size = ", 8],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.7669767688190527`*^9},ExpressionUUID->"f378e2a5-de5c-48c6-8d06-\
+7c3d16e293ff"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Schoolbook algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.003345`3.975941115599817"}],
+  SequenceForm["Schoolbook algorithm time = ", 0.003345`3.975941115599817],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976768824374*^9},ExpressionUUID->"acd31253-d0a0-4620-b5c5-\
+8796e04a65f0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"My algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.008503`4.381117172572521"}],
+  SequenceForm["My algorithm time = ", 0.008503`4.381117172572521],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.76697676882965*^9},ExpressionUUID->"9d74385e-1a05-49ea-a5d2-\
+2490876a36d2"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Size = \"\>", "\[InvisibleSpace]", "16"}],
+  SequenceForm["Size = ", 16],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.7669767688376303`*^9},ExpressionUUID->"6148d0fd-215b-4a2b-b8c9-\
+02e0c9c019cf"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Schoolbook algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.022015`4.7942636832915175"}],
+  SequenceForm["Schoolbook algorithm time = ", 0.022015`4.7942636832915175],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976768845645*^9},ExpressionUUID->"c4848bd5-2eaf-41d3-8dba-\
+c9ca1cd7ea0b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"My algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.060726`5.234919668737755"}],
+  SequenceForm["My algorithm time = ", 0.060726`5.234919668737755],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976768853598*^9},ExpressionUUID->"3f2f2adf-f625-4c23-826e-\
+2a6c367193fd"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Size = \"\>", "\[InvisibleSpace]", "32"}],
+  SequenceForm["Size = ", 32],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976768861272*^9},ExpressionUUID->"e7f55452-235e-445f-8cc5-\
+73731b03d62b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Schoolbook algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.179322`5.705178567455732"}],
+  SequenceForm["Schoolbook algorithm time = ", 0.179322`5.705178567455732],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976769030446*^9},ExpressionUUID->"547ddfcd-f8da-4ad8-b937-\
+a3f325868534"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"My algorithm time = \"\>", "\[InvisibleSpace]", 
+   "0.208269`5.770169625273503"}],
+  SequenceForm["My algorithm time = ", 0.208269`5.770169625273503],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976769238912*^9},ExpressionUUID->"df8e6bc2-22ce-41ef-939e-\
+e03f31e7b892"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Size = \"\>", "\[InvisibleSpace]", "64"}],
+  SequenceForm["Size = ", 64],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976769243291*^9},ExpressionUUID->"a32d344a-9103-4849-99e0-\
+e2bf49d3cb14"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Schoolbook algorithm time = \"\>", "\[InvisibleSpace]", 
+   "1.14455`6.510179763201845"}],
+  SequenceForm["Schoolbook algorithm time = ", 1.14455`6.510179763201845],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.7669767703849773`*^9},ExpressionUUID->"7565b329-31e8-43a3-a3b7-\
+690048f64adc"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"My algorithm time = \"\>", "\[InvisibleSpace]", 
+   "1.876245`6.724834541398703"}],
+  SequenceForm["My algorithm time = ", 1.876245`6.724834541398703],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976772261606*^9},ExpressionUUID->"bf3e3727-24f8-4adc-a3d8-\
+371cec5c5fd7"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Size = \"\>", "\[InvisibleSpace]", "128"}],
+  SequenceForm["Size = ", 128],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976772266169*^9},ExpressionUUID->"deac2a5a-bb2d-4377-810d-\
+a029983e2e6a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Schoolbook algorithm time = \"\>", "\[InvisibleSpace]", 
+   "9.393203`7.424358701633379"}],
+  SequenceForm["Schoolbook algorithm time = ", 9.393203`7.424358701633379],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976781660473*^9},ExpressionUUID->"000d559c-5114-4389-bdd4-\
+e52a6345fdde"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"My algorithm time = \"\>", "\[InvisibleSpace]", 
+   "11.495053`7.512055971498354"}],
+  SequenceForm["My algorithm time = ", 11.495053`7.512055971498354],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.766976481514357*^9, 3.76697649379799*^9}, 
+   3.76697655035612*^9, 
+   3.766976793155514*^9},ExpressionUUID->"da6b683b-64ae-4f5e-9573-\
+db2e285b2e73"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFit", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0.000079"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "0.000303"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "0.001628"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"8", ",", "0.008503"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"16", ",", "0.060726"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"32", ",", "0.208269"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"64", ",", "1.876245"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"128", ",", "11.495053"}], "}"}]}], "}"}], ",", 
+   RowBox[{
+    RowBox[{"a", " ", 
+     RowBox[{"x", "^", "3"}]}], "+", 
+    RowBox[{"b", " ", 
+     RowBox[{"x", "^", "2"}]}], " ", "+", " ", 
+    RowBox[{"c", " ", "x"}], " ", "+", " ", "d"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}], ",", "x"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.766976871410993*^9, 3.766976878629292*^9}, {
+  3.766976911190669*^9, 
+  3.7669771188734627`*^9}},ExpressionUUID->"f9c11f21-a2a4-49e9-b06c-\
+eaeaf2ba341c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"a", "\[Rule]", "2.954905152088621`*^-6"}], ",", 
+   RowBox[{"b", "\[Rule]", "0.00038450550170335615`"}], ",", 
+   RowBox[{"c", "\[Rule]", 
+    RowBox[{"-", "0.008028513860984212`"}]}], ",", 
+   RowBox[{"d", "\[Rule]", "0.027050025137314006`"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.766977050675672*^9, 3.766977056090798*^9}, {
+  3.766977101712805*^9, 
+  3.766977122615821*^9}},ExpressionUUID->"568e2f76-821c-45f6-8210-\
+13343bca6e84"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"2.954905152088621", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"-", "6"}]}], "*", 
+     RowBox[{"8", "^", "i"}]}], "+", 
+    RowBox[{"0.000384506", "*", 
+     RowBox[{"4", "^", "i"}]}], "-", 
+    RowBox[{"0.00802851", "*", 
+     RowBox[{"2", "^", "i"}]}], "+", "0.02705"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "7"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.766977189043927*^9, 
+  3.7669772967691803`*^9}},ExpressionUUID->"e19f7496-e942-4692-a86e-\
+e344848643bd"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.012554643241216709`", ",", "0.0012771699297336693`", ",", 
+   RowBox[{"-", "0.011056784562130627`"}], ",", "0.009130667502954978`", ",", 
+   "0.2606981560236399`", ",", "1.8627725921891192`", ",", 
+   "11.496032273512956`"}], "}"}]], "Output",
+ CellChangeTimes->{3.766977266628891*^9, 
+  3.766977297889997*^9},ExpressionUUID->"9d1c2875-fe46-4208-88ea-\
+bdad39107633"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"TreeForm", "[", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"1", "+", "x"}], ")"}], 
+   RowBox[{"(", 
+    RowBox[{"1", "+", 
+     RowBox[{"x", "^", "2"}]}], ")"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"TreeForm", "[", 
+  RowBox[{"(", 
+   RowBox[{"1", "+", "x", "+", 
+    RowBox[{"x", "^", "2"}], "+", 
+    RowBox[{"x", "^", "3"}]}], ")"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.766978143019508*^9, 3.7669781587731457`*^9}, {
+  3.766978225939159*^9, 
+  3.766978233694374*^9}},ExpressionUUID->"a499d55a-b565-4dc1-8abf-\
+3c66e0edc822"],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[{{1.2510864843424487`, 2.5021729686848975`}, {
+    0.41702882811414954`, 1.6681153124565984`}, {0., 0.8340576562282993}, {
+    0.8340576562282991, 0.8340576562282993}, {2.0851441405707476`, 
+    1.6681153124565984`}, {1.6681153124565982`, 0.8340576562282993}, {
+    2.5021729686848975`, 0.8340576562282993}, {2.0851441405707476`, 0.}, {
+    2.919201796799047, 0.}}, {
+     {RGBColor[0.55, 0.45, 0.45], 
+      LineBox[{{1, 2}, {1, 5}, {2, 3}, {2, 4}, {5, 6}, {5, 7}, {7, 8}, {7, 
+       9}}]}, {
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 1],
+        TagBox[
+         RowBox[{
+           RowBox[{"(", 
+             RowBox[{"1", "+", "x"}], ")"}], " ", 
+           RowBox[{"(", 
+             RowBox[{"1", "+", 
+               SuperscriptBox["x", "2"]}], ")"}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[(1 + $CellContext`x) (1 + $CellContext`x^2)], "Tooltip"]& ], 
+      
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Plus", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 2],
+        TagBox[
+         RowBox[{"1", "+", "x"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[1 + $CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["1",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 3],
+        TagBox["1", HoldForm]],
+       Annotation[#, 
+        HoldForm[1], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 4],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Plus", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 5],
+        TagBox[
+         RowBox[{"1", "+", 
+           SuperscriptBox["x", "2"]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[1 + $CellContext`x^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["1",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 6],
+        TagBox["1", HoldForm]],
+       Annotation[#, 
+        HoldForm[1], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 7],
+        TagBox[
+         SuperscriptBox["x", "2"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 8],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["2",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 9],
+        TagBox["2", HoldForm]],
+       Annotation[#, 
+        HoldForm[2], "Tooltip"]& ]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{1.2510864843424487`, 2.5021729686848975`}, {
+     0.41702882811414954`, 1.6681153124565984`}, {0., 0.8340576562282993}, {
+     0.8340576562282991, 0.8340576562282993}, {2.0851441405707476`, 
+     1.6681153124565984`}, {1.6681153124565982`, 0.8340576562282993}, {
+     2.5021729686848975`, 0.8340576562282993}, {2.0851441405707476`, 0.}, {
+     2.919201796799047, 0.}}]& ],
+  AspectRatio->1,
+  FormatType:>StandardForm,
+  FrameTicks->Automatic,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{3.7669781593924513`*^9, 
+  3.766978233971134*^9},ExpressionUUID->"46257ba1-8785-4947-8526-\
+646c884af4db"],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[{{1.3333333333333333`, 1.3333333333333333`}, {0., 
+    0.6666666666666666}, {0.6666666666666666, 0.6666666666666666}, {
+    1.3333333333333333`, 0.6666666666666666}, {1., 0.}, {1.6666666666666667`, 
+    0.}, {2.6666666666666665`, 0.6666666666666666}, {2.3333333333333335`, 
+    0.}, {3., 0.}}, {
+     {RGBColor[0.55, 0.45, 0.45], 
+      LineBox[{{1, 2}, {1, 3}, {1, 4}, {1, 7}, {4, 5}, {4, 6}, {7, 8}, {7, 
+       9}}]}, {
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Plus", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 1],
+        TagBox[
+         RowBox[{"1", "+", "x", "+", 
+           SuperscriptBox["x", "2"], "+", 
+           SuperscriptBox["x", "3"]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[1 + $CellContext`x + $CellContext`x^2 + $CellContext`x^3], 
+        "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["1",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 2],
+        TagBox["1", HoldForm]],
+       Annotation[#, 
+        HoldForm[1], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 3],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 4],
+        TagBox[
+         SuperscriptBox["x", "2"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 5],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["2",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 6],
+        TagBox["2", HoldForm]],
+       Annotation[#, 
+        HoldForm[2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 7],
+        TagBox[
+         SuperscriptBox["x", "3"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x^3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 8],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["3",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 9],
+        TagBox["3", HoldForm]],
+       Annotation[#, 
+        HoldForm[3], "Tooltip"]& ]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{1.3333333333333333`, 1.3333333333333333`}, {0.,
+      0.6666666666666666}, {0.6666666666666666, 0.6666666666666666}, {
+     1.3333333333333333`, 0.6666666666666666}, {1., 0.}, {1.6666666666666667`,
+      0.}, {2.6666666666666665`, 0.6666666666666666}, {2.3333333333333335`, 
+     0.}, {3., 0.}}]& ],
+  AspectRatio->NCache[2^Rational[-1, 2], 0.7071067811865475],
+  FormatType:>StandardForm,
+  FrameTicks->Automatic,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{3.7669781593924513`*^9, 
+  3.766978233996036*^9},ExpressionUUID->"c4828fff-4a92-4ec7-8156-\
+5787c04e743b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TreeForm", "[", 
+  RowBox[{"1", "+", 
+   RowBox[{"y", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}]}], "+", 
+   RowBox[{
+    RowBox[{"y", "^", "2"}], 
+    RowBox[{"(", 
+     RowBox[{"2", "+", 
+      RowBox[{"3", "x"}]}], ")"}], 
+    RowBox[{"(", 
+     RowBox[{"4", "+", 
+      RowBox[{"5", 
+       RowBox[{"x", "^", "2"}]}]}], ")"}]}], "+", 
+   RowBox[{
+    RowBox[{"y", "^", "3"}], 
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      RowBox[{"3", "x"}]}], ")"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7669782623724527`*^9, 
+  3.766978294969246*^9}},ExpressionUUID->"fecd7eb7-e8d8-430a-9f0f-\
+218658cf7911"],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[CompressedData["
+1:eJxTTMoPSmViYGBQAGIQnSPkcZZpMotD4Q/RGxYrWB0YoCAq4d6ahGBGh2gw
+/dAelX/Rvn2CL7Pg35/2qOo/2qOq/2jfAVb3Eq4+Tafq0JlaZgeYeRB7v8Ll
+o6H6UPX/hPNh6iOg9szXaNV7GfgPzoeZj2oeowOqflY4H6Yepr/2yMa3Sy6x
+w/no4QJxDyecPznmpUStOg/cPpg8zHyI+/jgfEh4i8D9n+C2Zvu0DCE09wqi
+uU8Yzoeph7kPZh6MX37v8aO8vWJw8yDuF4Xrh/hPHM4HANix4Hs=
+    "], {
+     {RGBColor[0.55, 0.45, 0.45], 
+      LineBox[{{1, 2}, {1, 3}, {1, 8}, {1, 24}, {3, 4}, {3, 7}, {4, 5}, {4, 
+       6}, {8, 9}, {8, 14}, {8, 21}, {9, 10}, {9, 11}, {11, 12}, {11, 13}, {
+       14, 15}, {14, 16}, {16, 17}, {16, 18}, {18, 19}, {18, 20}, {21, 22}, {
+       21, 23}, {24, 25}, {24, 30}, {25, 26}, {25, 27}, {27, 28}, {27, 29}, {
+       30, 31}, {30, 32}}]}, {
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Plus", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 1],
+        TagBox[
+         RowBox[{"1", "+", 
+           RowBox[{
+             RowBox[{"(", 
+               RowBox[{"1", "+", "x"}], ")"}], " ", "y"}], "+", 
+           RowBox[{
+             RowBox[{"(", 
+               RowBox[{"2", "+", 
+                 RowBox[{"3", " ", "x"}]}], ")"}], " ", 
+             RowBox[{"(", 
+               RowBox[{"4", "+", 
+                 RowBox[{"5", " ", 
+                   SuperscriptBox["x", "2"]}]}], ")"}], " ", 
+             SuperscriptBox["y", "2"]}], "+", 
+           RowBox[{
+             RowBox[{"(", 
+               RowBox[{"1", "+", 
+                 RowBox[{"3", " ", "x"}]}], ")"}], " ", 
+             SuperscriptBox["y", "3"]}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+        1 + (1 + $CellContext`x) $CellContext`y + (2 + 3 $CellContext`x) (4 + 
+           5 $CellContext`x^2) $CellContext`y^2 + (1 + 
+           3 $CellContext`x) $CellContext`y^3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["1",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 2],
+        TagBox["1", HoldForm]],
+       Annotation[#, 
+        HoldForm[1], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 3],
+        TagBox[
+         RowBox[{
+           RowBox[{"(", 
+             RowBox[{"1", "+", "x"}], ")"}], " ", "y"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[(1 + $CellContext`x) $CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Plus", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 4],
+        TagBox[
+         RowBox[{"1", "+", "x"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[1 + $CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["1",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 5],
+        TagBox["1", HoldForm]],
+       Annotation[#, 
+        HoldForm[1], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 6],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["y",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 7],
+        TagBox["y", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 8],
+        TagBox[
+         RowBox[{
+           RowBox[{"(", 
+             RowBox[{"2", "+", 
+               RowBox[{"3", " ", "x"}]}], ")"}], " ", 
+           RowBox[{"(", 
+             RowBox[{"4", "+", 
+               RowBox[{"5", " ", 
+                 SuperscriptBox["x", "2"]}]}], ")"}], " ", 
+           SuperscriptBox["y", "2"]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[(2 + 3 $CellContext`x) (4 + 
+          5 $CellContext`x^2) $CellContext`y^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Plus", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 9],
+        TagBox[
+         RowBox[{"2", "+", 
+           RowBox[{"3", " ", "x"}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[2 + 3 $CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["2",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 10],
+        TagBox["2", HoldForm]],
+       Annotation[#, 
+        HoldForm[2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 11],
+        TagBox[
+         RowBox[{"3", " ", "x"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[3 $CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["3",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 12],
+        TagBox["3", HoldForm]],
+       Annotation[#, 
+        HoldForm[3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 13],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Plus", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 14],
+        TagBox[
+         RowBox[{"4", "+", 
+           RowBox[{"5", " ", 
+             SuperscriptBox["x", "2"]}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[4 + 5 $CellContext`x^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["4",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 15],
+        TagBox["4", HoldForm]],
+       Annotation[#, 
+        HoldForm[4], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 16],
+        TagBox[
+         RowBox[{"5", " ", 
+           SuperscriptBox["x", "2"]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[5 $CellContext`x^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["5",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 17],
+        TagBox["5", HoldForm]],
+       Annotation[#, 
+        HoldForm[5], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 18],
+        TagBox[
+         SuperscriptBox["x", "2"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 19],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["2",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 20],
+        TagBox["2", HoldForm]],
+       Annotation[#, 
+        HoldForm[2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 21],
+        TagBox[
+         SuperscriptBox["y", "2"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["y",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 22],
+        TagBox["y", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["2",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 23],
+        TagBox["2", HoldForm]],
+       Annotation[#, 
+        HoldForm[2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 24],
+        TagBox[
+         RowBox[{
+           RowBox[{"(", 
+             RowBox[{"1", "+", 
+               RowBox[{"3", " ", "x"}]}], ")"}], " ", 
+           SuperscriptBox["y", "3"]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[(1 + 3 $CellContext`x) $CellContext`y^3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Plus", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 25],
+        TagBox[
+         RowBox[{"1", "+", 
+           RowBox[{"3", " ", "x"}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[1 + 3 $CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["1",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 26],
+        TagBox["1", HoldForm]],
+       Annotation[#, 
+        HoldForm[1], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 27],
+        TagBox[
+         RowBox[{"3", " ", "x"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[3 $CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["3",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 28],
+        TagBox["3", HoldForm]],
+       Annotation[#, 
+        HoldForm[3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 29],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 30],
+        TagBox[
+         SuperscriptBox["y", "3"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y^3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["y",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 31],
+        TagBox["y", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["3",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.02962962962962963],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 32],
+        TagBox["3", HoldForm]],
+       Annotation[#, 
+        HoldForm[3], "Tooltip"]& ]}}],
+   Annotation[#, VertexCoordinateRules -> CompressedData["
+1:eJxTTMoPSmViYGBQAGIQnSPkcZZpMotD4Q/RGxYrWB0YoCAq4d6ahGBGh2gw
+/dAelX/Rvn2CL7Pg35/2qOo/2qOq/2jfAVb3Eq4+Tafq0JlaZgeYeRB7v8Ll
+o6H6UPX/hPNh6iOg9szXaNV7GfgPzoeZj2oeowOqflY4H6Yepr/2yMa3Sy6x
+w/no4QJxDyecPznmpUStOg/cPpg8zHyI+/jgfEh4i8D9n+C2Zvu0DCE09wqi
+uU8Yzoeph7kPZh6MX37v8aO8vWJw8yDuF4Xrh/hPHM4HANix4Hs=
+     "]]& ],
+  AspectRatio->NCache[
+    Rational[2, 3], 0.6666666666666666],
+  FormatType:>StandardForm,
+  FrameTicks->Automatic,
+  ImageSize->{638.453125, Automatic},
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{
+  3.766978295552228*^9},ExpressionUUID->"8c7e2ae0-a664-45ac-8352-\
+5b9ccc4ef51f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TreeForm", "[", 
+  RowBox[{"Collect", "[", 
+   RowBox[{
+    RowBox[{"1", "+", 
+     RowBox[{"y", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", "x"}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"y", "^", "2"}], 
+      RowBox[{"(", 
+       RowBox[{"2", "+", 
+        RowBox[{"3", "x"}]}], ")"}], 
+      RowBox[{"(", 
+       RowBox[{"4", "+", 
+        RowBox[{"5", 
+         RowBox[{"x", "^", "2"}]}]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"y", "^", "3"}], 
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        RowBox[{"3", "x"}]}], ")"}]}]}], ",", "x"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7669785426487427`*^9, 
+  3.7669785619450493`*^9}},ExpressionUUID->"0c49eedc-9fbf-43ab-868c-\
+2d8407ff5f51"],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[CompressedData["
+1:eJxTTMoPSmViYGDQBGIQnbPFZ+ERHzYH3bv/uZJu/7dngIJwceN8v5qf9hD6
+pj0q/yWc3xiYdtlK9rF9E5j+bA8x5z2cD1MfAaUboeIwPsxemHkQ93yD63eq
+krS9sfoPmnk/MfTD+N+bInf938LiAFMPsY/ZASYP8y+MDzGfxwFm7qOn9h2d
+T9jh+s94qIUJi3A7oNrPiaEfxg9s/1kxeaeAA2p48MPleRSK35S2Cjqghocw
+3P7jO97ERwQKwfXbvLrvJvtSGM6HuF8Mrn6j9GXdRw2icHl132MiyyXE4XxI
+eIig+V8Mzofpj4DGM0w/jA9TD0sXkPARd0BNJ5Jw8+bU7fydvUECrl9ow5pH
+Bh5ScD5MPUw/JHyl4XwAKTwAMw==
+    "], {
+     {RGBColor[0.55, 0.45, 0.45], 
+      LineBox[{{1, 2}, {1, 3}, {1, 4}, {1, 9}, {1, 17}, {1, 25}, {1, 28}, {4, 
+       5}, {4, 6}, {6, 7}, {6, 8}, {9, 10}, {9, 11}, {9, 14}, {11, 12}, {11, 
+       13}, {14, 15}, {14, 16}, {17, 18}, {17, 19}, {17, 22}, {19, 20}, {19, 
+       21}, {22, 23}, {22, 24}, {25, 26}, {25, 27}, {28, 29}, {28, 30}, {30, 
+       31}, {30, 32}, {30, 37}, {32, 33}, {32, 34}, {34, 35}, {34, 36}, {37, 
+       38}, {37, 39}, {39, 40}, {39, 41}}]}, {
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Plus", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 1],
+        TagBox[
+         RowBox[{"1", "+", "y", "+", 
+           RowBox[{"8", " ", 
+             SuperscriptBox["y", "2"]}], "+", 
+           RowBox[{"10", " ", 
+             SuperscriptBox["x", "2"], " ", 
+             SuperscriptBox["y", "2"]}], "+", 
+           RowBox[{"15", " ", 
+             SuperscriptBox["x", "3"], " ", 
+             SuperscriptBox["y", "2"]}], "+", 
+           SuperscriptBox["y", "3"], "+", 
+           RowBox[{"x", " ", 
+             RowBox[{"(", 
+               RowBox[{"y", "+", 
+                 RowBox[{"12", " ", 
+                   SuperscriptBox["y", "2"]}], "+", 
+                 RowBox[{"3", " ", 
+                   SuperscriptBox["y", "3"]}]}], ")"}]}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+        1 + $CellContext`y + 8 $CellContext`y^2 + 
+         10 $CellContext`x^2 $CellContext`y^2 + 
+         15 $CellContext`x^3 $CellContext`y^2 + $CellContext`y^3 + \
+$CellContext`x ($CellContext`y + 12 $CellContext`y^2 + 3 $CellContext`y^3)], 
+        "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["1",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 2],
+        TagBox["1", HoldForm]],
+       Annotation[#, 
+        HoldForm[1], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["y",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 3],
+        TagBox["y", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 4],
+        TagBox[
+         RowBox[{"8", " ", 
+           SuperscriptBox["y", "2"]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[8 $CellContext`y^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["8",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 5],
+        TagBox["8", HoldForm]],
+       Annotation[#, 
+        HoldForm[8], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 6],
+        TagBox[
+         SuperscriptBox["y", "2"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["y",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 7],
+        TagBox["y", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["2",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 8],
+        TagBox["2", HoldForm]],
+       Annotation[#, 
+        HoldForm[2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 9],
+        TagBox[
+         RowBox[{"10", " ", 
+           SuperscriptBox["x", "2"], " ", 
+           SuperscriptBox["y", "2"]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[10 $CellContext`x^2 $CellContext`y^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["10",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 10],
+        TagBox["10", HoldForm]],
+       Annotation[#, 
+        HoldForm[10], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 11],
+        TagBox[
+         SuperscriptBox["x", "2"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 12],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["2",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 13],
+        TagBox["2", HoldForm]],
+       Annotation[#, 
+        HoldForm[2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 14],
+        TagBox[
+         SuperscriptBox["y", "2"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["y",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 15],
+        TagBox["y", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["2",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 16],
+        TagBox["2", HoldForm]],
+       Annotation[#, 
+        HoldForm[2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 17],
+        TagBox[
+         RowBox[{"15", " ", 
+           SuperscriptBox["x", "3"], " ", 
+           SuperscriptBox["y", "2"]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[15 $CellContext`x^3 $CellContext`y^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["15",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 18],
+        TagBox["15", HoldForm]],
+       Annotation[#, 
+        HoldForm[15], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 19],
+        TagBox[
+         SuperscriptBox["x", "3"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x^3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 20],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["3",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 21],
+        TagBox["3", HoldForm]],
+       Annotation[#, 
+        HoldForm[3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 22],
+        TagBox[
+         SuperscriptBox["y", "2"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["y",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 23],
+        TagBox["y", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["2",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 24],
+        TagBox["2", HoldForm]],
+       Annotation[#, 
+        HoldForm[2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 25],
+        TagBox[
+         SuperscriptBox["y", "3"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y^3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["y",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 26],
+        TagBox["y", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["3",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 27],
+        TagBox["3", HoldForm]],
+       Annotation[#, 
+        HoldForm[3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 28],
+        TagBox[
+         RowBox[{"x", " ", 
+           RowBox[{"(", 
+             RowBox[{"y", "+", 
+               RowBox[{"12", " ", 
+                 SuperscriptBox["y", "2"]}], "+", 
+               RowBox[{"3", " ", 
+                 SuperscriptBox["y", "3"]}]}], ")"}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x ($CellContext`y + 12 $CellContext`y^2 + 
+          3 $CellContext`y^3)], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["x",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 29],
+        TagBox["x", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`x], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Plus", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 30],
+        TagBox[
+         RowBox[{"y", "+", 
+           RowBox[{"12", " ", 
+             SuperscriptBox["y", "2"]}], "+", 
+           RowBox[{"3", " ", 
+             SuperscriptBox["y", "3"]}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y + 12 $CellContext`y^2 + 3 $CellContext`y^3], 
+        "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["y",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 31],
+        TagBox["y", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 32],
+        TagBox[
+         RowBox[{"12", " ", 
+           SuperscriptBox["y", "2"]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[12 $CellContext`y^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["12",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 33],
+        TagBox["12", HoldForm]],
+       Annotation[#, 
+        HoldForm[12], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 34],
+        TagBox[
+         SuperscriptBox["y", "2"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y^2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["y",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 35],
+        TagBox["y", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["2",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 36],
+        TagBox["2", HoldForm]],
+       Annotation[#, 
+        HoldForm[2], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Times", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 37],
+        TagBox[
+         RowBox[{"3", " ", 
+           SuperscriptBox["y", "3"]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[3 $CellContext`y^3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["3",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 38],
+        TagBox["3", HoldForm]],
+       Annotation[#, 
+        HoldForm[3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Power", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 39],
+        TagBox[
+         SuperscriptBox["y", "3"], HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y^3], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["y",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 40],
+        TagBox["y", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`y], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["3",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.021621621621621623`],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 41],
+        TagBox["3", HoldForm]],
+       Annotation[#, 
+        HoldForm[3], "Tooltip"]& ]}}],
+   Annotation[#, VertexCoordinateRules -> CompressedData["
+1:eJxTTMoPSmViYGDQBGIQnbPFZ+ERHzYH3bv/uZJu/7dngIJwceN8v5qf9hD6
+pj0q/yWc3xiYdtlK9rF9E5j+bA8x5z2cD1MfAaUboeIwPsxemHkQ93yD63eq
+krS9sfoPmnk/MfTD+N+bInf938LiAFMPsY/ZASYP8y+MDzGfxwFm7qOn9h2d
+T9jh+s94qIUJi3A7oNrPiaEfxg9s/1kxeaeAA2p48MPleRSK35S2Cjqghocw
+3P7jO97ERwQKwfXbvLrvJvtSGM6HuF8Mrn6j9GXdRw2icHl132MiyyXE4XxI
+eIig+V8Mzofpj4DGM0w/jA9TD0sXkPARd0BNJ5Jw8+bU7fydvUECrl9ow5pH
+Bh5ScD5MPUw/JHyl4XwAKTwAMw==
+     "]]& ],
+  AspectRatio->NCache[2 Rational[3, 37]^Rational[1, 2], 0.5694947974514994],
+  FormatType:>StandardForm,
+  FrameTicks->Automatic,
+  ImageSize->{852.640625, Automatic},
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{{3.766978554171756*^9, 
+  3.7669785625041647`*^9}},ExpressionUUID->"25f214bf-aac6-4b8d-a898-\
+42d2c0eb4dff"]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{236, Automatic}, {Automatic, 50}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 23021, 579, 1312, "Input",ExpressionUUID->"cb1f85cd-3707-4393-a163-c4187a2114e3"],
+Cell[CellGroupData[{
+Cell[23604, 603, 2617, 62, 367, "Input",ExpressionUUID->"2b62dc70-78d8-4ed4-a8f4-d892d366a245"],
+Cell[CellGroupData[{
+Cell[26246, 669, 323, 8, 24, "Print",ExpressionUUID->"8d0365a8-cd5f-4374-95c6-26d303ccd07d"],
+Cell[26572, 679, 420, 9, 24, "Print",ExpressionUUID->"ac255900-b0e5-4ddd-9c73-d2c8f8aa3644"],
+Cell[26995, 690, 403, 9, 24, "Print",ExpressionUUID->"34c2761f-c342-4fe3-a407-d99d381ebef4"],
+Cell[27401, 701, 325, 8, 24, "Print",ExpressionUUID->"4efb50e3-06c1-4719-ba16-2b4daec0b847"],
+Cell[27729, 711, 421, 9, 24, "Print",ExpressionUUID->"40757ae4-54e3-486b-b181-65e8de3df34b"],
+Cell[28153, 722, 405, 9, 24, "Print",ExpressionUUID->"40373cb1-d271-4291-a30b-2d28d473a7f7"],
+Cell[28561, 733, 323, 8, 24, "Print",ExpressionUUID->"8d5b2745-f088-4e0a-875b-f992191ba661"],
+Cell[28887, 743, 421, 9, 24, "Print",ExpressionUUID->"deb01060-5c4b-4e45-aa0b-ab6f0e67ba47"],
+Cell[29311, 754, 407, 9, 24, "Print",ExpressionUUID->"51fffedb-c1ac-4e8c-a1fb-644a687d9bea"],
+Cell[29721, 765, 325, 8, 24, "Print",ExpressionUUID->"f378e2a5-de5c-48c6-8d06-7c3d16e293ff"],
+Cell[30049, 775, 419, 9, 24, "Print",ExpressionUUID->"acd31253-d0a0-4620-b5c5-8796e04a65f0"],
+Cell[30471, 786, 402, 9, 24, "Print",ExpressionUUID->"9d74385e-1a05-49ea-a5d2-2490876a36d2"],
+Cell[30876, 797, 327, 8, 24, "Print",ExpressionUUID->"6148d0fd-215b-4a2b-b8c9-02e0c9c019cf"],
+Cell[31206, 807, 421, 9, 24, "Print",ExpressionUUID->"c4848bd5-2eaf-41d3-8dba-c9ca1cd7ea0b"],
+Cell[31630, 818, 403, 9, 24, "Print",ExpressionUUID->"3f2f2adf-f625-4c23-826e-2a6c367193fd"],
+Cell[32036, 829, 325, 8, 24, "Print",ExpressionUUID->"e7f55452-235e-445f-8cc5-73731b03d62b"],
+Cell[32364, 839, 419, 9, 24, "Print",ExpressionUUID->"547ddfcd-f8da-4ad8-b937-a3f325868534"],
+Cell[32786, 850, 403, 9, 24, "Print",ExpressionUUID->"df8e6bc2-22ce-41ef-939e-e03f31e7b892"],
+Cell[33192, 861, 325, 8, 24, "Print",ExpressionUUID->"a32d344a-9103-4849-99e0-e2bf49d3cb14"],
+Cell[33520, 871, 419, 9, 24, "Print",ExpressionUUID->"7565b329-31e8-43a3-a3b7-690048f64adc"],
+Cell[33942, 882, 403, 9, 24, "Print",ExpressionUUID->"bf3e3727-24f8-4adc-a3d8-371cec5c5fd7"],
+Cell[34348, 893, 327, 8, 24, "Print",ExpressionUUID->"deac2a5a-bb2d-4377-810d-a029983e2e6a"],
+Cell[34678, 903, 419, 9, 24, "Print",ExpressionUUID->"000d559c-5114-4389-bdd4-e52a6345fdde"],
+Cell[35100, 914, 405, 9, 24, "Print",ExpressionUUID->"da6b683b-64ae-4f5e-9573-db2e285b2e73"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35554, 929, 1138, 33, 52, "Input",ExpressionUUID->"f9c11f21-a2a4-49e9-b06c-eaeaf2ba341c"],
+Cell[36695, 964, 491, 11, 37, "Output",ExpressionUUID->"568e2f76-821c-45f6-8210-13343bca6e84"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37223, 980, 565, 16, 30, "Input",ExpressionUUID->"e19f7496-e942-4692-a86e-e344848643bd"],
+Cell[37791, 998, 409, 8, 34, "Output",ExpressionUUID->"9d1c2875-fe46-4208-88ea-bdad39107633"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38237, 1011, 561, 16, 52, "Input",ExpressionUUID->"a499d55a-b565-4dc1-8abf-3c66e0edc822"],
+Cell[38801, 1029, 7163, 199, 388, "Output",ExpressionUUID->"46257ba1-8785-4947-8526-646c884af4db"],
+Cell[45967, 1230, 6963, 194, 283, "Output",ExpressionUUID->"c4828fff-4a92-4ec7-8156-5787c04e743b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52967, 1429, 642, 22, 30, "Input",ExpressionUUID->"fecd7eb7-e8d8-430a-9f0f-218658cf7911"],
+Cell[53612, 1453, 23738, 665, 454, "Output",ExpressionUUID->"8c7e2ae0-a664-45ac-8352-5b9ccc4ef51f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[77387, 2123, 738, 24, 30, "Input",ExpressionUUID->"0c49eedc-9fbf-43ab-868c-2d8407ff5f51"],
+Cell[78128, 2149, 30123, 838, 514, "Output",ExpressionUUID->"25f214bf-aac6-4b8d-a898-42d2c0eb4dff"]
+}, Open  ]]
+}
+]
+*)
+
