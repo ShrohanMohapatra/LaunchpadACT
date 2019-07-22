@@ -1,0 +1,129 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3552,        121]
+NotebookOptionsPosition[      2898,        100]
+NotebookOutlinePosition[      3255,        116]
+CellTagsIndexPosition[      3212,        113]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"RSolve", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"T", "[", "n", "]"}], "\[Equal]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"n", "^", "2"}], "+", 
+        RowBox[{"2", "n"}]}], ")"}], 
+      RowBox[{"T", "[", 
+       RowBox[{
+        RowBox[{"Sqrt", "[", "n", "]"}], "/", "2"}], "]"}]}], "+", 
+     RowBox[{"k", " ", 
+      RowBox[{"n", "^", "2"}]}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"T", "[", "n", "]"}], ",", "n"}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.772632489194277*^9, 3.772632525565996*^9}, {
+  3.77263262299625*^9, 
+  3.77263262766481*^9}},ExpressionUUID->"eb791e75-5ef1-4e58-b5e5-\
+c85ff96df33c"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.772632526221437*^9, 
+  3.7726326514988327`*^9},ExpressionUUID->"b6ca68d9-a7c1-469a-b758-\
+67922649d134"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RSolve", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"T", "[", "n", "]"}], "\[Equal]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"n", "^", "2"}], "+", 
+        RowBox[{"2", "n"}]}], ")"}], 
+      RowBox[{"T", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"n", "/", "2"}], ")"}], "^", 
+        RowBox[{"(", 
+         RowBox[{"1", "/", "3"}], ")"}]}], "]"}]}], "+", "k"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"T", "[", "n", "]"}], ",", "n"}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7727835709027033`*^9, 
+  3.772783614483983*^9}},ExpressionUUID->"c6fe7386-0baf-4dae-b28c-\
+57b49e8f4f59"],
+
+Cell[BoxData[
+ RowBox[{"RSolve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"T", "[", "n", "]"}], "\[Equal]", 
+    RowBox[{"k", "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", "n"}], "+", 
+        SuperscriptBox["n", "2"]}], ")"}], " ", 
+      RowBox[{"T", "[", 
+       FractionBox[
+        SuperscriptBox["n", 
+         RowBox[{"1", "/", "3"}]], 
+        SuperscriptBox["2", 
+         RowBox[{"1", "/", "3"}]]], "]"}]}]}]}], ",", 
+   RowBox[{"T", "[", "n", "]"}], ",", "n"}], "]"}]], "Output",
+ CellChangeTimes->{3.77278361223071*^9, 
+  3.772783663262484*^9},ExpressionUUID->"1bde1f84-89bd-4a93-bf6d-\
+9f8f879fbedb"]
+}, Open  ]]
+},
+WindowSize->{808, 651},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 731, 21, 94, "Input",ExpressionUUID->"eb791e75-5ef1-4e58-b5e5-c85ff96df33c"],
+Cell[1314, 45, 161, 3, 34, "Output",ExpressionUUID->"b6ca68d9-a7c1-469a-b758-67922649d134"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1512, 53, 718, 22, 94, "Input",ExpressionUUID->"c6fe7386-0baf-4dae-b28c-57b49e8f4f59"],
+Cell[2233, 77, 649, 20, 54, "Output",ExpressionUUID->"1bde1f84-89bd-4a93-bf6d-9f8f879fbedb"]
+}, Open  ]]
+}
+]
+*)
+
