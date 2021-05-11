@@ -1,7 +1,7 @@
 from random import randint
 import matplotlib.pyplot as plt
 from time import time
-def monteCarloMatrixMultiply(A,B):
+def monteCarloMatrixMultiply1(A,B):
     n = len(A)
     C = [[{k:False for k in range(n)} for j in range(n)] for i in range(n)]
     D = [[{k:False for k in range(n)} for j in range(n)] for i in range(n)]
@@ -27,7 +27,7 @@ def monteCarloMatrixMultiply(A,B):
                 flag = flag and C[i][j]['size'] == n and D[i][j]['size'] == n
         if flag: break
     return AB
-def monteCarloMatrixMultiply1(A,B):
+def monteCarloMatrixMultiply2(A,B):
     n = len(A)
     C = [[{} for j in range(n)] for i in range(n)]
     D = [[{} for j in range(n)] for i in range(n)]
@@ -61,12 +61,12 @@ def actualMatrixMultiply(A,B):
             for k in range(n):
                 C[i][j] = C[i][j] + A[i][k]*B[k][j]
     return C
-print(monteCarloMatrixMultiply1([[5,0],[0,7]],[[6,0],[0,10]]))
-print(monteCarloMatrixMultiply1(
+print(monteCarloMatrixMultiply2([[5,0],[0,7]],[[6,0],[0,10]]))
+print(monteCarloMatrixMultiply2(
     [[1,0,0],[0,1,0],[0,0,1]],[[6,0,4],[0,10,10],[1,2,3]]))
-setparams = [5,45,5]
+setparams = [5,125,20]
 actualTime = [k for k in range(setparams[0],setparams[1],setparams[2])]
-experiTime = [k for k in range(setparams[0],setparams[1],setparams[2])]
+experi1Time = [k for k in range(setparams[0],setparams[1],setparams[2])]
 experi2Time = [k for k in range(setparams[0],setparams[1],setparams[2])]
 xaxis = [k for k in range(setparams[0],setparams[1],setparams[2])]
 for k in range(len(xaxis)):
@@ -80,14 +80,14 @@ for k in range(len(xaxis)):
     start = time()
     monteCarloMatrixMultiply1(A,B)
     end = time()
-    experiTime[k] = end - start
+    experi1Time[k] = end - start
     start = time()
-    monteCarloMatrixMultiply(A,B)
+    monteCarloMatrixMultiply2(A,B)
     end = time()
     experi2Time[k] = end - start
 fig, ax = plt.subplots()
 ax.plot(xaxis,actualTime,label='Schoolbook algo')
-ax.plot(xaxis,experiTime,label='My algo1')
+ax.plot(xaxis,experi1Time,label='My algo1')
 ax.plot(xaxis,experi2Time,label='My algo2')
 legend = ax.legend()
 plt.show()
