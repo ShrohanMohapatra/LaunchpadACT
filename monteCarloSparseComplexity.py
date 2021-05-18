@@ -19,6 +19,7 @@ def FindUpperLimit(n):
         if p>=q: break
         else: u = u + 1
     return u
+for k in range(6): print(factorial(k))
 a = [n for n in range(5)]
 b = [FindUpperLimit(n) for n in range(5)]
 pyplot.plot(a)
